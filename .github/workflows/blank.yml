@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        id: step1
+        run: test
+
+      - name: Run a multi-line script
+        if: steps.step1.outcome == 'failure'
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
