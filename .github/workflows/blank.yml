@@ -15,12 +15,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run a one-line script
-        id: step1
+        id: step_1
         run: test
         continue-on-error: true
 
       - name: Run a multi-line script
-        if: steps.step1.outcome == 'failure'
+        if: steps.step_1.outcome == 'failure'
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
