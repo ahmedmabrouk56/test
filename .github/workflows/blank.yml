@@ -17,6 +17,7 @@ jobs:
       - name: Run a one-line script
         id: step1
         run: test
+        continue-on-error: true
 
       - name: Run a multi-line script
         if: steps.step1.outcome == 'failure'
